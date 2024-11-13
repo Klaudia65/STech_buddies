@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <!-- En-tête arrondi bleu avec le texte "Sign Up" -->
+        <!-- header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -30,12 +30,11 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- Espace entre l'en-tête et le formulaire -->
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp"/>
 
-        <!-- Champ de saisie du nom complet -->
+        <!--Name -->
         <EditText
             android:id="@+id/fullNameInput"
             android:layout_width="300dp"
@@ -54,7 +53,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="16dp" />
 
-        <!-- Champ de saisie du nom d'utilisateur -->
+        <!-- User input -->
         <EditText
             android:id="@+id/usernameInput"
             android:layout_width="300dp"
@@ -65,7 +64,6 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Champ de saisie de l'Email -->
         <EditText
             android:id="@+id/emailInput"
             android:layout_width="300dp"
@@ -76,7 +74,6 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Champ de saisie du mot de passe -->
         <EditText
             android:id="@+id/passwordInput"
             android:layout_width="300dp"
@@ -87,7 +84,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Champ de saisie pour confirmer le mot de passe -->
+        <!-- Confirm the password -->
         <EditText
             android:id="@+id/confirmPasswordInput"
             android:layout_width="300dp"
@@ -98,7 +95,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Bouton de création de compte -->
+        <!-- Create account button -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="300dp"
@@ -109,7 +106,7 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Lien pour retourner à la connexion -->
+        <!-- Go back to sign in page -->
         <TextView
             android:id="@+id/loginLink"
             android:layout_width="wrap_content"

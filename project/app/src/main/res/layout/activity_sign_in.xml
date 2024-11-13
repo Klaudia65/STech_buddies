@@ -81,7 +81,7 @@
             android:paddingStart="20dp"/>
     </LinearLayout>
 
-    <!-- Bouton de connexion -->
+    <!-- Connexion button-->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="300dp"
