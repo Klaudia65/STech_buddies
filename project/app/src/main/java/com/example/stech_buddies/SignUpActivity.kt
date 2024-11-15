@@ -9,11 +9,11 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)  // Assurez-vous que le nom du XML est correct.
+        setContentView(R.layout.activity_sign_up)
 
         // finding the spinner
         val majorSpinner: Spinner = findViewById(R.id.majorSpinner)
-        val majors = arrayOf("Computer Science", "Electrical Engineering", "Mechanical Engineering", "Mathematics", "Physics", "Biology")
+        val majors = arrayOf("Computer Engineering", "Electrical Engineering", "Mechanical Engineering", "Mathematics", "Physics", "Media", "Design")
 
         // the adapter serves as a link between the UI Component and the Data Source
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, majors)
