@@ -67,6 +67,8 @@ class SignInActivity : AppCompatActivity() {
                                 .addOnFailureListener { exception ->
                                     Log.d("SignInActivity", "get failed with ", exception)
                                 }
+                        }else {
+                            Log.e("SignInActivity", "User ID is null")
                         }
                     } else {
                         Log.e("SignInActivity", "Error: ${task.exception?.message}")

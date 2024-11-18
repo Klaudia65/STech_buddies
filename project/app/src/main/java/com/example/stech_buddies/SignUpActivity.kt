@@ -1,5 +1,6 @@
 package com.example.stech_buddies
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -33,6 +34,7 @@ class SignUpActivity : AppCompatActivity() {
 
         // Register button click listener
         binding.registerButton.setOnClickListener {
+            Log.d("SignUpActivity", "Register button clicked")
             val fullName = binding.fullNameInput.text.toString()
             val major = binding.majorSpinner.selectedItem.toString()
             val username = binding.usernameInput.text.toString()
@@ -71,6 +73,11 @@ class SignUpActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             }
+        }
+        // Login link click listener
+        binding.loginLink.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
         }
     }
 }
