@@ -1,5 +1,6 @@
 package com.example.stech_buddies
 
+import android.app.DownloadManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -8,11 +9,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.toolbox.JsonObjectRequest
 import com.example.stech_buddies.databinding.ActivityMainBinding
 import com.google.firebase.BuildConfig
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -49,9 +52,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendMessageToFCM(message: String) {
-        // Call your Cloud Function to send the message
-        // This is a placeholder for the actual implementation
-        Log.d(TAG, "Sending message to FCM: $message")
+        val url = "https://<your-cloud-function-url>/sendMessage"
+        val requestBody = JSONObject()
+        requestBody.put("message", message)
+        requestBody.put("token", "<your-fcm-token>")
+
+        val request = JsonObjectRequest(
+            Request.Method.POST, url, requestBody,
+            { response ->
+                Log.d(TAG, "Message sent successfully: $response")
+            },
+            { error ->
+                Log.e(TAG, "Error sending message: ${error.message}")
+            }
+        )
+
+        Volley.newRequestQueue(this).add(request)
     }
 
     private val messageReceiver = object : BroadcastReceiver() {
