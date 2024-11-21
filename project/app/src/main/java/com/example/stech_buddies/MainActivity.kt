@@ -1,21 +1,22 @@
 package com.example.stech_buddies
 
-import android.app.DownloadManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.example.stech_buddies.databinding.ActivityMainBinding
-import com.google.firebase.BuildConfig
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 import org.json.JSONObject
+import com.google.auth.oauth2.GoogleCredentials
+import java.io.FileInputStream
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -27,10 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         FirebaseApp.initializeApp(this)
         val auth = FirebaseAuth.getInstance()
-
-        if (BuildConfig.DEBUG) {
-            auth.useEmulator("127.0.0.1", 9099)
-        }
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -52,12 +49,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendMessageToFCM(message: String) {
-        val url = "https://<your-cloud-function-url>/sendMessage"
+        val url = "https://fcm.googleapis.com/v1/projects/1:270849123411:android:15824a8a640c5ade89d2a6/messages:send"
         val requestBody = JSONObject()
-        requestBody.put("message", message)
-        requestBody.put("token", "<your-fcm-token>")
+        val messageBody = JSONObject()
+        messageBody.put("token", "BKTi9AatzkLnXuH6iwKTdoQ5lxB9nW-oB6ooAxvTRyWiNo9Nb_Gwuq1POsprPfvmyWToox39mzIN4ct9N-M-Z2I")
+        messageBody.put("data", JSONObject().put("message", message))
+        requestBody.put("message", messageBody)
 
-        val request = JsonObjectRequest(
+        val accessToken = getAccessToken()
+
+        val request = object : JsonObjectRequest(
             Request.Method.POST, url, requestBody,
             { response ->
                 Log.d(TAG, "Message sent successfully: $response")
@@ -65,9 +66,23 @@ class MainActivity : AppCompatActivity() {
             { error ->
                 Log.e(TAG, "Error sending message: ${error.message}")
             }
-        )
+        ) {
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] = "Bearer $accessToken"
+                headers["Content-Type"] = "application/json"
+                return headers
+            }
+        }
 
         Volley.newRequestQueue(this).add(request)
+    }
+
+    private fun getAccessToken(): String {
+        val credentials = GoogleCredentials.fromStream(FileInputStream("app/google-services.json"))
+            .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging"))
+        credentials.refreshIfExpired()
+        return credentials.accessToken.tokenValue
     }
 
     private val messageReceiver = object : BroadcastReceiver() {

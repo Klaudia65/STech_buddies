@@ -66,5 +66,9 @@ dependencies {
     // See https://firebase.google.com/docs/android/setup#available-libraries
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.auth:google-auth-library-oauth2-http:1.3.0")
+    implementation("com.google.auth:google-auth-library-credentials:0.25.0")
+
 
 }
