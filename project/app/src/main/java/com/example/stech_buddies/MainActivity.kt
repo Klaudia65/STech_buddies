@@ -17,6 +17,8 @@ import com.google.firebase.messaging.FirebaseMessaging
 import org.json.JSONObject
 import com.google.auth.oauth2.GoogleCredentials
 import java.io.FileInputStream
+import java.io.FileNotFoundException
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -79,10 +81,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getAccessToken(): String {
-        val credentials = GoogleCredentials.fromStream(FileInputStream("app/google-services.json"))
-            .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging"))
-        credentials.refreshIfExpired()
-        return credentials.accessToken.tokenValue
+        return try {
+            val filePath = applicationContext.filesDir.path + "/google-services.json"
+            Log.d("FCM", "Looking for google-services.json at: $filePath")
+
+            val credentials = GoogleCredentials.fromStream(FileInputStream("google-services.json"))
+                .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging"))
+            credentials.refreshIfExpired()
+            val token = credentials.accessToken.tokenValue
+            Log.d("FCM", "Access token obtained: $token")
+            token
+        } catch (e: FileNotFoundException) {
+            Log.e(TAG, "File not found: app/google-services.json", e)
+            ""
+        } catch (e: IOException) {
+            Log.e(TAG, "Error reading app/google-services.json", e)
+            ""
+        }
     }
 
     private val messageReceiver = object : BroadcastReceiver() {

@@ -37,6 +37,11 @@ android {
     buildFeatures{
         viewBinding = true
     }
+    packagingOptions {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
 }
 
 dependencies {
