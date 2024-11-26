@@ -31,35 +31,52 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         val auth = FirebaseAuth.getInstance()
 
+
+        // Get the registration token
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(TAG, "Fetching FCM registration token failed", task.exception)
                 return@addOnCompleteListener
             }
-
             val token = task.result
             Log.d(TAG, "FCM Registration Token: $token")
         }
 
+        // when clicking on the button, send the message to the FCM
         binding.button.setOnClickListener {
             val message = binding.msgToSend.text.toString()
             sendMessageToFCM(message)
         }
 
-        val filter = IntentFilter("com.example.stech_buddies.FCM_MESSAGE")
-        registerReceiver(messageReceiver, filter, RECEIVER_NOT_EXPORTED)
+        val filter = IntentFilter("com.example.stech_buddies.FCM_MESSAGE") //Intent filter to listen to the broadcast
+        registerReceiver(messageReceiver, filter, RECEIVER_NOT_EXPORTED) //Register the broadcast receiver for FCM messages
     }
 
+private fun getAccessToken(): String {
+    return try {
+        val stream = resources.openRawResource(R.raw.service_account) // opening the service account file without the need of the file path
+        val credentials = GoogleCredentials.fromStream(stream) // getting the credentials from the service account file
+            .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging")) // saying that we want to use the Firebase Messaging API
+        credentials.refreshIfExpired()
+        credentials.accessToken.tokenValue
+    } catch (e: IOException) {
+        Log.e(TAG, "Error with getting the token access", e)
+        ""
+    }
+}
+
     private fun sendMessageToFCM(message: String) {
-        val url = "https://fcm.googleapis.com/v1/projects/1:270849123411:android:15824a8a640c5ade89d2a6/messages:send"
-        val requestBody = JSONObject()
-        val messageBody = JSONObject()
-        messageBody.put("token", "BKTi9AatzkLnXuH6iwKTdoQ5lxB9nW-oB6ooAxvTRyWiNo9Nb_Gwuq1POsprPfvmyWToox39mzIN4ct9N-M-Z2I")
-        messageBody.put("data", JSONObject().put("message", message))
-        requestBody.put("message", messageBody)
-
-        val accessToken = getAccessToken()
-
+        val url = "https://fcm.googleapis.com/v1/projects/stech-buddies/messages:send" // URL to send the message, accessing the Firebase Messaging API for the project
+        // The request with the message to send with the token of the device (to change with the token of the device you want to send the message to)
+        val requestBody = JSONObject().apply {
+            put("message", JSONObject().apply {
+                put("token", "eUpfGHlrSTCZSRMmddVZN5:APA91bEGECJ52nLp5Ny4TVUreykTCdTSwJgsuKQqSfgMqdHGrnPbzaJ3etkd4uab40s571kYXDXk7UmOkfNQRVP3fdysJpA_FwvUGhkBy4uGUs3cEPG-ZXw") // Remplace par le jeton FCM de l'appareil cible
+                put("data", JSONObject().apply {
+                    put("message", message)
+                })
+            })
+        }
+        // Post request
         val request = object : JsonObjectRequest(
             Request.Method.POST, url, requestBody,
             { response ->
@@ -69,40 +86,20 @@ class MainActivity : AppCompatActivity() {
                 Log.e(TAG, "Error sending message: ${error.message}")
             }
         ) {
-            override fun getHeaders(): Map<String, String> {
-                val headers = HashMap<String, String>()
-                headers["Authorization"] = "Bearer $accessToken"
+            override fun getHeaders(): Map<String, String> { // Header are supp information to send metadata to the server
+                val headers = HashMap<String, String>() // Need these headers to send the message withe FCM V1 API
+                headers["Authorization"] = "Bearer ${getAccessToken()}" // Bearer means we use access token OAuth 2.0
                 headers["Content-Type"] = "application/json"
                 return headers
             }
         }
-
         Volley.newRequestQueue(this).add(request)
-    }
-
-    private fun getAccessToken(): String {
-        return try {
-            val filePath = applicationContext.filesDir.path + "/google-services.json"
-            Log.d("FCM", "Looking for google-services.json at: $filePath")
-
-            val credentials = GoogleCredentials.fromStream(FileInputStream("google-services.json"))
-                .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging"))
-            credentials.refreshIfExpired()
-            val token = credentials.accessToken.tokenValue
-            Log.d("FCM", "Access token obtained: $token")
-            token
-        } catch (e: FileNotFoundException) {
-            Log.e(TAG, "File not found: app/google-services.json", e)
-            ""
-        } catch (e: IOException) {
-            Log.e(TAG, "Error reading app/google-services.json", e)
-            ""
-        }
     }
 
     private val messageReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val message = intent?.getStringExtra("message")
+            Log.d("Message","message Received $message")
             binding.msgReceived.text = message
         }
     }

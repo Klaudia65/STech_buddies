@@ -74,6 +74,12 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.auth:google-auth-library-oauth2-http:1.3.0")
     implementation("com.google.auth:google-auth-library-credentials:0.25.0")
+    implementation("com.google.auth:google-auth-library-oauth2-http:0.27.0")  // Pour l'authentification OAuth2
+    implementation("com.google.api-client:google-api-client:1.34.0")
 
-
+}
+buildscript {
+    dependencies {
+        classpath("com.google.gms:google-services:4.3.15")
+    }
 }
