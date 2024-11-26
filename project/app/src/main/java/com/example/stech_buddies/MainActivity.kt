@@ -71,6 +71,10 @@ private fun getAccessToken(): String {
         val requestBody = JSONObject().apply {
             put("message", JSONObject().apply {
                 put("token", "eUpfGHlrSTCZSRMmddVZN5:APA91bEGECJ52nLp5Ny4TVUreykTCdTSwJgsuKQqSfgMqdHGrnPbzaJ3etkd4uab40s571kYXDXk7UmOkfNQRVP3fdysJpA_FwvUGhkBy4uGUs3cEPG-ZXw") // Remplace par le jeton FCM de l'appareil cible
+                put("notification", JSONObject().apply {
+                    put("title", "STech Buddies")
+                    put("body", message)
+                })
                 put("data", JSONObject().apply {
                     put("message", message)
                 })
