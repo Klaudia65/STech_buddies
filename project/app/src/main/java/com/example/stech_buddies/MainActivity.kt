@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 import org.json.JSONObject
 import com.google.auth.oauth2.GoogleCredentials
+import com.google.firebase.firestore.FirebaseFirestore
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             }
             val token = task.result
             Log.d(TAG, "FCM Registration Token: $token")
+            //sendTokenToServer(token)
         }
 
         adapter = MessageAdapter(messages)
@@ -119,6 +121,26 @@ class MainActivity : AppCompatActivity() {
                 addMessageToUI(message)
             }
         }
+    }
+
+    // Need to register the token to send messages to other users
+    private fun sendTokenToServer(token: String?) {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null || token == null) {
+            Log.e(TAG, "User not authenticated or token is null")
+            return
+        }
+        val userId = currentUser.uid
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("users").document(userId)
+            .update("fcmToken", token) // Updating the token in the database if the user changes devices
+            .addOnSuccessListener {
+                Log.d(TAG, "Token updated successfully")
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error updating token", e)
+            }
     }
 
     override fun onDestroy() {
