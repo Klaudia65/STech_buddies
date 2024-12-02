@@ -1,5 +1,6 @@
 package com.example.stech_buddies
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.example.stech_buddies.databinding.ActivityMessagingBinding
 import com.example.stech_buddies.databinding.FragmentChatroomBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -46,6 +46,11 @@ class ChatroomFragment : Fragment() {
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
+        button.setOnClickListener {
+            val intent = Intent(context, MessagingActivity::class.java)
+            intent.putExtra("token", username)
+            startActivity(intent)
+        }
         linearLayout.addView(button)
     }
 }

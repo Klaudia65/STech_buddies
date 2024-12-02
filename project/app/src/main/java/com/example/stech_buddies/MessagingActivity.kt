@@ -33,6 +33,7 @@ class MessagingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMessagingBinding
     private val messages = mutableListOf<Message>()
     private lateinit var adapter: MessageAdapter
+    private lateinit var username: String
 
     data class Message(val content: String)
 
@@ -40,6 +41,9 @@ class MessagingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMessagingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        username = intent.getStringExtra("username") ?: "Unknown User"
+        Log.d("User", "Username: $username")
 
         FirebaseApp.initializeApp(this)
         val auth = FirebaseAuth.getInstance()
@@ -71,7 +75,25 @@ class MessagingActivity : AppCompatActivity() {
         registerReceiver(messageReceiver, filter, RECEIVER_NOT_EXPORTED)
     }
 
-    private fun getAccessToken(): String {
+    private lateinit var userToken: String
+    private fun fetchUserToken(username: String) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users")
+            .whereEqualTo("username", username)
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    userToken = document.getString("fcmToken") ?: ""
+                    Log.d("User", "User Token: $userToken")
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error fetching user token", e)
+            }
+    }
+
+
+        private fun getAccessToken(): String {
         return try {
             val stream = resources.openRawResource(R.raw.service_account)
             val credentials = GoogleCredentials.fromStream(stream)
@@ -88,7 +110,7 @@ class MessagingActivity : AppCompatActivity() {
         val url = "https://fcm.googleapis.com/v1/projects/stech-buddies/messages:send"
         val requestBody = JSONObject().apply {
             put("message", JSONObject().apply {
-                put("token", "eUpfGHlrSTCZSRMmddVZN5:APA91bEGECJ52nLp5Ny4TVUreykTCdTSwJgsuKQqSfgMqdHGrnPbzaJ3etkd4uab40s571kYXDXk7UmOkfNQRVP3fdysJpA_FwvUGhkBy4uGUs3cEPG-ZXw")
+                put("token", userToken)
                 put("notification", JSONObject().apply {
                     put("title", "STech Buddies")
                     put("body", message)
