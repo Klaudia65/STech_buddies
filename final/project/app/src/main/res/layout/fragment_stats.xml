@@ -1,0 +1,153 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Current Month Progress Bar -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Month Progress"
+            android:textSize="18sp"
+            android:textColor="#0a1f62"
+            android:layout_marginBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/current_month_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#0a1f62"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Current Month Stats -->
+        <TextView
+            android:id="@+id/current_month_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0a1f62"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/current_month_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 minutes"
+            android:textSize="16sp"
+            android:textColor="#0a1f62"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center" />
+
+        <!-- Goal Setting -->
+        <EditText
+            android:id="@+id/monthly_goal_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:hint="Enter goal (hours)"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/set_goal_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Goal"
+            android:backgroundTint="#0a1f62"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp" />
+
+        <!-- Past Month Section -->
+        <TextView
+            android:id="@+id/past_months_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Past 3 Months"
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"
+            android:textColor="#0a1f62"
+            android:layout_gravity="start" />
+
+        <TextView
+            android:id="@+id/month1_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month 1"
+            android:layout_marginTop="8dp"
+            android:textColor="#0a1f62"
+            android:layout_gravity="start" />
+
+        <ProgressBar
+            android:id="@+id/month1_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#0a1f62"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/month2_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month 2"
+            android:layout_marginTop="16dp"
+            android:textColor="#0a1f62"
+            android:layout_gravity="start" />
+
+        <ProgressBar
+            android:id="@+id/month2_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#0a1f62"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/month3_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month 3"
+            android:layout_marginTop="16dp"
+            android:textColor="#0a1f62"
+            android:layout_gravity="start" />
+
+        <ProgressBar
+            android:id="@+id/month3_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#0a1f62"
+            android:layout_marginTop="8dp" />
+
+        <!-- Motivational Text -->
+        <TextView
+            android:id="@+id/motivational_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You're slacking, study more!"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="#0a1f62"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</ScrollView>

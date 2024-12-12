@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50ca58e0-110f-48b4-8c79-6c272e3776fe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/AudioMessaging.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/MessagingActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/audio_message.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/button_circle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/circle_background_msg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/ic_pause.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/ic_play.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/message_received.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/message_sent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_messaging.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/item_message_audio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/item_message_received.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/item_message_sent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/src/main/res/raw/service_account.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/ChatroomFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/ChatroomFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/GroupsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/GroupsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/HomePageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/HomePageActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/MapFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/MapFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/SignInActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/SignInActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/SignUpActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/SignUpActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/StatsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/StatsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/TimerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/TimerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/TutoringFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/TutoringFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/UserInfoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/java/com/example/stech_buddies/UserInfoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/drawable/circle_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/circle_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/drawable/rounded_edittext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/rounded_edittext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/drawable/rounded_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/drawable/rounded_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_home_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_sign_up.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_user_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/activity_user_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_chatroom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_chatroom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_groups.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_map.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_stats.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_stats.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_timer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_timer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_tutoring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/fragment_tutoring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/layout/nav_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/layout/nav_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/menu/navigation_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/menu/navigation_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/project/gradle/libs.versions.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/project" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2q6rcAEbxni8xzzUX2fmXWaAcmy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "nav",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Klaudia/Documents/3cours_ST/mobile_prog/envoyer/final",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50ca58e0-110f-48b4-8c79-6c272e3776fe" name="Changes" comment="" />
+      <created>1733993942941</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733993942941</updated>
+    </task>
+    <servers />
+  </component>
+</project>
