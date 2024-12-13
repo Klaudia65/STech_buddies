@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270849123411",
+    "project_id": "stech-buddies",
+    "storage_bucket": "stech-buddies.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270849123411:android:15824a8a640c5ade89d2a6",
+        "android_client_info": {
+          "package_name": "com.example.stech_buddies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1JUvoSYRxCw_1BQ8Sgbg1NU4nKu99ETc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

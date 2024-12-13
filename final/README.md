@@ -1,1 +1,0 @@
-# STech Buddies
